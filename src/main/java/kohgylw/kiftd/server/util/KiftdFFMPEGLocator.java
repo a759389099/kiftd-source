@@ -107,6 +107,7 @@ public class KiftdFFMPEGLocator extends FFMPEGLocator {
 				try {
 					copyFile("ffmpeg-" + arch + suffix, ffmpegFile);
 				} catch (NullPointerException e) {
+					e.printStackTrace();
 					Printer.instance.print("警告：未能找到适合此操作系统的ffmpeg引擎可执行文件，视频播放的在线解码功能将不可用。");
 					lu.writeException(e);
 					enableFFmpeg = false;
