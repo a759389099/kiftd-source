@@ -168,7 +168,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 		ServerUIModule.window.add(titlebox);
 		final JPanel subtitlebox = new JPanel(new FlowLayout(1));
 		subtitlebox.setBorder(new EmptyBorder(0, 0, (int) (-20 * proportion), 0));
-		final JLabel subtitle = new JLabel("青阳网络文件系统-服务器");
+		final JLabel subtitle = new JLabel("网络文件系统-服务器");
 		subtitle.setFont(new Font("宋体", 0, (int) (13 * proportion)));
 		subtitlebox.add(subtitle);
 		ServerUIModule.window.add(subtitlebox);
@@ -247,7 +247,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 		ServerUIModule.window.add(outputBox);
 		final JPanel bottombox = new JPanel(new FlowLayout(1));
 		bottombox.setBorder(new EmptyBorder(0, 0, (int) (-30 * proportion), 0));
-		bottombox.add(new JLabel("--青阳龙野@kohgylw--"));
+		bottombox.add(new JLabel(""));
 		ServerUIModule.window.add(bottombox);
 		ServerUIModule.start.setEnabled(false);
 		ServerUIModule.stop.setEnabled(false);
