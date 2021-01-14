@@ -59,7 +59,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 
 	private ServerUIModule() throws Exception {
 		setUIFont();
-		(ServerUIModule.window = new JFrame("kiftd-服务器控制台")).setSize(OriginSize_Width, OriginSize_Height);
+		(ServerUIModule.window = new JFrame("网盘系统服务器控制台")).setSize(OriginSize_Width, OriginSize_Height);
 		ServerUIModule.window.setLocation(100, 100);
 		ServerUIModule.window.setResizable(false);
 		try {
@@ -76,7 +76,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 				iconType = "/kohgylw/kiftd/ui/resource/icon_tray_w.png";
 			}
 			(ServerUIModule.trayIcon = new TrayIcon(ImageIO.read(this.getClass().getResourceAsStream(iconType))))
-					.setToolTip("青阳网络文件系统-kiftd");
+					.setToolTip("网络文件系统-kiftd");
 			trayIcon.setImageAutoSize(true);
 			final PopupMenu pMenu = new PopupMenu();
 			final MenuItem exit = new MenuItem("退出(Exit)");

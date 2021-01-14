@@ -654,6 +654,7 @@ function dologin() {
 			data : {},
 			dataType : 'text',
 			success : function(result) {
+				//var publicKeyInfo = JSON.parse(result);
 				var publicKeyInfo = eval("(" + result + ")");
 				var date = new Date();// 这个是客户浏览器上的当前时间
 				var loginInfo = '{accountId:"' + accountId + '",accountPwd:"'
@@ -2872,7 +2873,27 @@ var screenedFoldrView;// 经过排序的文件视图
 // 执行搜索功能
 function doSearchFile() {
 	var keyworld = $("#sreachKeyWordIn").val();
-	if (keyworld.length != 0) {
+	//先判空，再判断长度
+	if(keyworld.length == null){
+		screenedFoldrView = null;
+		showOriginFolderView();
+	}
+	else {
+		showFolderView(locationpath);
+		if(keyworld.length != 0){
+			// 如果用户在搜索字段中声明了全局搜索
+			if (keyworld.startsWith("all:") || keyworld.startsWith("all：")) {
+				selectInCompletePath(keyworld.substring(4));
+			} else {
+				startLoading();
+				selectInThisPath(keyworld);// 否则，均在本级下搜索
+				endLoading();
+			}
+		}
+	}
+	
+	
+/*	if (keyworld.length != 0) {
 		// 如果用户在搜索字段中声明了全局搜索
 		if (keyworld.startsWith("all:") || keyworld.startsWith("all：")) {
 			selectInCompletePath(keyworld.substring(4));
@@ -2888,7 +2909,7 @@ function doSearchFile() {
 			screenedFoldrView = null;
 			showOriginFolderView();
 		}
-	}
+	}*/
 }
 
 // 在本级内搜索
