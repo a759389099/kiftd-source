@@ -320,9 +320,12 @@ public class FileServiceImpl extends RangeFileStreamWriter implements FileServic
 		if (fileId != null) {
 			final Node f = this.fm.queryById(fileId);
 			if (f != null) {
+				//查看是否能够访问此文件所在文件夹，和此文件所在文件夹的所有父文件夹
 				if (ConfigureReader.instance().authorized(account, AccountAuth.DOWNLOAD_FILES,
 						fu.getAllFoldersId(f.getFileParentFolder()))) {
+					//获取父文件夹对象
 					Folder folder = flm.queryById(f.getFileParentFolder());
+					//查看是否可以访问此文件夹
 					if (ConfigureReader.instance().accessFolder(folder, account)) {
 						// 执行写出
 						final File fo = this.fbu.getFileFromBlocks(f);

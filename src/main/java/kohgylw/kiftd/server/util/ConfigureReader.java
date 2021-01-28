@@ -194,6 +194,7 @@ public class ConfigureReader {
 	 * @return boolean 是否具备该操作的权限，若具备返回true，否则返回false
 	 */
 	public boolean authorized(final String account, final AccountAuth auth, List<String> folders) {
+		//账户存在的情况下
 		if (account != null && account.length() > 0) {
 			final StringBuffer auths = new StringBuffer();
 			for (String id : folders) {
@@ -233,6 +234,7 @@ public class ConfigureReader {
 				return false;
 			}
 			}
+			//匿名登录(游客模式)情况下，是否可以下载
 		} else {
 			final String overall2 = this.accountp.getProperty("authOverall");
 			if (overall2 == null) {

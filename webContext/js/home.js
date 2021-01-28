@@ -1519,6 +1519,7 @@ function checkUploadFile() {
 									showUploadFileAlert("提示：该文件夹内存储的文件数量已达上限，无法在其中上传更多文件。您可以尝试将其上传至其他文件夹内。");
 									break;
 								default:
+									//var resp=JSON.parse(result)
 									var resp = eval("(" + result + ")");
 									if (resp.checkResult == "fileTooLarge") {
 										showUploadFileAlert("提示：文件["

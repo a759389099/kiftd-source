@@ -75,7 +75,7 @@ public class ResourceServiceImpl implements ResourceService {
 
 	private static final long RESOURCE_CACHE_MAX_AGE = 1800L;// 资源缓存的寿命30分钟，正好对应账户的自动注销时间
 
-	// 提供资源的输出流，原理与下载相同，但是个别细节有区别
+	// 提供资源的输出流，原理与下载相同，但是个别细节有区别，其中日志打印的内容和下载一样，都是download
 	@Override
 	public void getResource(String fid, HttpServletRequest request, HttpServletResponse response) {
 		final String account = (String) request.getSession().getAttribute("ACCOUNT");
